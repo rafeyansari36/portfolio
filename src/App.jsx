@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import Globe from './Globe.jsx';
+import Hero3D from './Hero3D.jsx';
 import { useInView } from './hooks.js';
 
 const Journey = lazy(() => import('./Journey.jsx'));
@@ -8,38 +8,45 @@ const Projects = lazy(() => import('./Projects.jsx'));
 const About = lazy(() => import('./About.jsx'));
 const Contact = lazy(() => import('./Contact.jsx'));
 
+function AnimatedLetters({ text, baseDelay = 0, step = 0.035 }) {
+  return [...text].map((ch, i) => {
+    if (ch === ' ') return <span key={i}>{' '}</span>;
+    return (
+      <span
+        key={i}
+        className="letter"
+        style={{ '--delay': `${baseDelay + i * step}s` }}
+      >
+        {ch}
+      </span>
+    );
+  });
+}
+
 function HeroSection() {
   const [ref, inView] = useInView({ rootMargin: '100px' });
   return (
     <section id="home" className="hero-section" ref={ref}>
       <div className="canvas-wrap">
-        <Globe inView={inView} />
+        <Hero3D inView={inView} />
       </div>
 
       <div className="hero">
-        <h1>
-          Exploring new
+        <h1 aria-label="Exploring new worlds in code">
+          <span className="line">
+            <AnimatedLetters text="Exploring new" baseDelay={0.15} />
+          </span>
           <br />
-          worlds in code.
+          <span className="line">
+            <AnimatedLetters text="worlds in code." baseDelay={0.6} />
+          </span>
         </h1>
-        <p>
+        <p className="hero-sub">
           Full-stack engineer crafting interactive experiences at the edge of
-          the web. Scroll, drag, and let the planet spin.
+          the web. Scroll down to begin the journey.
         </p>
         <div className="scroll-hint">Scroll to begin the journey ↓</div>
       </div>
-
-      <footer className="footer">
-        Model:{' '}
-        <a
-          href="https://sketchfab.com/3d-models/stylized-planet-789725db86f547fc9163b00f302c3e70"
-          target="_blank"
-          rel="noreferrer"
-        >
-          "Stylized planet"
-        </a>{' '}
-        by cmzw — CC-BY-4.0
-      </footer>
     </section>
   );
 }

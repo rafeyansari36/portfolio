@@ -135,6 +135,18 @@ export default function About() {
               <span>users reached</span>
             </div>
           </div>
+
+          <div className="about-credit">
+            Globe model:{' '}
+            <a
+              href="https://sketchfab.com/3d-models/stylized-planet-789725db86f547fc9163b00f302c3e70"
+              target="_blank"
+              rel="noreferrer"
+            >
+              "Stylized planet"
+            </a>{' '}
+            by cmzw — CC-BY-4.0
+          </div>
         </div>
 
         <div className="about-canvas-wrap">
