@@ -211,6 +211,8 @@ body,
   display: block;
   width: 100% !important;
   height: 100% !important;
+  /* Let the page own vertical swipe so scroll-driven car works on touch. */
+  touch-action: pan-y;
 }
 
 .journey-overlay {
@@ -357,6 +359,23 @@ body,
 
   .nav-links a::after {
     display: none;
+  }
+
+  /* Shrink the globe to a centered box so the rest of the hero is empty
+     space for the page to capture scroll/swipe gestures. */
+  .canvas-wrap {
+    inset: auto;
+    top: 50%;
+    left: 50%;
+    width: min(90vw, 460px);
+    height: min(55vh, 460px);
+    transform: translate(-50%, -52%);
+  }
+
+  /* Even within the canvas, allow vertical pan to bubble up to the page so
+     swipe-to-scroll works when the user starts the gesture on the globe. */
+  .canvas-wrap canvas {
+    touch-action: pan-y !important;
   }
 }
 
