@@ -15,12 +15,13 @@ function Planet(props) {
 
 useGLTF.preload('/planet/scene.gltf');
 
-export default function Globe() {
+export default function Globe({ inView = true }) {
   return (
     <Canvas
       camera={{ position: [0, 0, 3.2], fov: 45 }}
       gl={{ antialias: true, alpha: true }}
       dpr={[1, 2]}
+      frameloop={inView ? 'always' : 'never'}
     >
       <color attach="background" args={['#05060a']} />
       <ambientLight intensity={0.35} />

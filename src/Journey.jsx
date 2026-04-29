@@ -282,6 +282,17 @@ export default function Journey() {
   const progressRef = useRef({ target: 0, smooth: 0 });
   const [activeIdx, setActiveIdx] = useState(0);
   const [progressPct, setProgressPct] = useState(0);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { rootMargin: '200px' }
+    );
+    obs.observe(sectionRef.current);
+    return () => obs.disconnect();
+  }, []);
 
   useEffect(() => {
     function update() {
@@ -316,6 +327,7 @@ export default function Journey() {
           camera={{ position: [0, 4, -10], fov: 55 }}
           gl={{ antialias: true }}
           dpr={[1, 2]}
+          frameloop={inView ? 'always' : 'never'}
         >
           <color attach="background" args={['#05060a']} />
           <fog attach="fog" args={['#05060a', 14, 42]} />
