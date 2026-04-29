@@ -781,11 +781,87 @@ body,
     order: -1;
   }
 
+  /* Give Skills + Projects sections a bit more vertical room on portrait
+     phones so the 3D content + header + card all fit without overlap. */
+  .skills-section,
+  .projects-section {
+    min-height: 110vh;
+  }
+
   .section-header {
-    top: clamp(64px, 9vh, 96px);
+    top: clamp(70px, 10vh, 110px);
+    padding: 0 16px;
+  }
+
+  .section-header h2 {
+    font-size: clamp(24px, 6.5vw, 36px);
+    line-height: 1.1;
+  }
+
+  .section-header p {
+    font-size: 12px;
   }
 
   .project-card {
-    bottom: clamp(28px, 5vh, 60px);
+    bottom: clamp(20px, 4vh, 40px);
+    padding: 18px 20px;
+    width: calc(100vw - 32px);
+    border-radius: 12px;
+  }
+
+  .project-name {
+    font-size: 18px;
+  }
+
+  .project-card p {
+    font-size: 12.5px;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+
+  .project-tags span {
+    padding: 3px 8px;
+    font-size: 10.5px;
+  }
+
+  .project-pager {
+    gap: 8px;
+  }
+
+  .project-pager-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  /* Contact form — keep within the viewport */
+  .contact-overlay {
+    padding-top: clamp(72px, 11vh, 110px);
+  }
+
+  .contact-form {
+    padding: 14px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+
+  .contact-socials {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 12px;
+  }
+}
+
+/* Very narrow phones */
+@media (max-width: 380px) {
+  .section-header h2 {
+    font-size: 22px;
+  }
+
+  .project-card {
+    padding: 14px 16px;
   }
 }

@@ -2,7 +2,7 @@ import { useRef, Suspense, useMemo, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 import * as THREE from 'three';
-import { useInView } from './hooks.js';
+import { useInView, useMediaQuery } from './hooks.js';
 
 const PROJECTS = [
   {
@@ -141,12 +141,11 @@ function GalaxyStars() {
   );
 }
 
-function CameraOrbit() {
+function CameraOrbit({ amount = 1 }) {
   useFrame(({ camera, clock }) => {
     const t = clock.getElapsedTime() * 0.06;
-    const r = 8;
-    camera.position.x = Math.sin(t) * r * 0.3;
-    camera.position.y = 1.2 + Math.sin(t * 0.7) * 0.3;
+    camera.position.x = Math.sin(t) * 2.4 * amount;
+    camera.position.y = 1.2 + Math.sin(t * 0.7) * 0.3 * amount;
     camera.lookAt(0, 0, 0);
   });
   return null;
@@ -156,6 +155,11 @@ export default function Projects() {
   const [ref, inView] = useInView();
   const [activeIdx, setActiveIdx] = useState(0);
   const active = PROJECTS[activeIdx];
+  const isMobile = useMediaQuery('(max-width: 768px)');
+  const sceneScale = isMobile ? 0.55 : 1;
+  const cameraPos = isMobile ? [0, 1.2, 8.5] : [0, 1.2, 8];
+  const cameraFov = isMobile ? 60 : 55;
+  const orbitAmount = isMobile ? 0.45 : 1;
 
   return (
     <section id="projects" className="content-section projects-section" ref={ref}>
@@ -167,7 +171,7 @@ export default function Projects() {
 
       <div className="section-canvas projects-canvas">
         <Canvas
-          camera={{ position: [0, 1.2, 8], fov: 55 }}
+          camera={{ position: cameraPos, fov: cameraFov }}
           frameloop={inView ? 'always' : 'never'}
           dpr={[1, 2]}
         >
@@ -179,15 +183,17 @@ export default function Projects() {
 
           <Suspense fallback={null}>
             <GalaxyStars />
-            <CameraOrbit />
-            {PROJECTS.map((p, i) => (
-              <ProjectPlanet
-                key={p.name}
-                project={p}
-                isActive={activeIdx === i}
-                onClick={() => setActiveIdx(i)}
-              />
-            ))}
+            <CameraOrbit amount={orbitAmount} />
+            <group scale={sceneScale}>
+              {PROJECTS.map((p, i) => (
+                <ProjectPlanet
+                  key={p.name}
+                  project={p}
+                  isActive={activeIdx === i}
+                  onClick={() => setActiveIdx(i)}
+                />
+              ))}
+            </group>
           </Suspense>
         </Canvas>
 

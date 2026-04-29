@@ -2,7 +2,7 @@ import { useRef, Suspense, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Text } from '@react-three/drei';
 import * as THREE from 'three';
-import { useInView } from './hooks.js';
+import { useInView, useMediaQuery } from './hooks.js';
 
 const SKILLS = [
   { name: 'React',      color: '#61dafb' },
@@ -149,6 +149,10 @@ function StarDust() {
 
 export default function Skills() {
   const [ref, inView] = useInView();
+  const isMobile = useMediaQuery('(max-width: 768px)');
+  const sceneScale = isMobile ? 0.6 : 1;
+  const cameraPos = isMobile ? [0, 0.4, 4.6] : [0, 0.8, 5.5];
+  const cameraFov = isMobile ? 60 : 50;
 
   return (
     <section id="skills" className="content-section skills-section" ref={ref}>
@@ -160,7 +164,7 @@ export default function Skills() {
 
       <div className="section-canvas">
         <Canvas
-          camera={{ position: [0, 0.8, 5.5], fov: 50 }}
+          camera={{ position: cameraPos, fov: cameraFov }}
           frameloop={inView ? 'always' : 'never'}
           dpr={[1, 2]}
         >
@@ -172,11 +176,13 @@ export default function Skills() {
 
           <Suspense fallback={null}>
             <StarDust />
-            <OrbitRings />
-            <Core />
-            {SKILLS.map((s, i) => (
-              <SkillNode key={s.name} skill={s} idx={i} total={SKILLS.length} />
-            ))}
+            <group scale={sceneScale}>
+              <OrbitRings />
+              <Core />
+              {SKILLS.map((s, i) => (
+                <SkillNode key={s.name} skill={s} idx={i} total={SKILLS.length} />
+              ))}
+            </group>
           </Suspense>
         </Canvas>
       </div>
