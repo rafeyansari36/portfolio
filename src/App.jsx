@@ -32,18 +32,18 @@ function HeroSection() {
       </div>
 
       <div className="hero">
-        <h1 aria-label="Exploring new worlds in code">
+        <h1 aria-label="Hi, I'm Rafey. I engineer the web.">
           <span className="line">
-            <AnimatedLetters text="Exploring new" baseDelay={0.15} />
+            <AnimatedLetters text="Hi, I'm Rafey," baseDelay={0.15} />
           </span>
           <br />
           <span className="line">
-            <AnimatedLetters text="worlds in code." baseDelay={0.6} />
+            <AnimatedLetters text="I engineer the web." baseDelay={0.6} />
           </span>
         </h1>
         <p className="hero-sub">
-          Full-stack engineer crafting interactive experiences at the edge of
-          the web. Scroll down to begin the journey.
+          Full-stack developer specializing in Angular, React, and the
+          MEAN/MERN ecosystem. Scroll down to walk through the journey.
         </p>
         <div className="scroll-hint">Scroll to begin the journey ↓</div>
       </div>
@@ -55,7 +55,7 @@ export default function App() {
   return (
     <div className="app">
       <div className="brand">
-        Port<span>folio</span>
+        Rafey<span>.dev</span>
       </div>
 
       <nav className="nav-links" aria-label="Primary">

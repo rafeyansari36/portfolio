@@ -5,36 +5,28 @@ import * as THREE from 'three';
 
 const EXPERIENCES = [
   {
-    t: 0.08,
-    year: '2020',
-    title: 'Junior Developer',
-    company: 'First Steps Inc.',
+    t: 0.1,
+    year: 'Nov 2023',
+    title: 'Frontend Web Developer',
+    company: 'Pafex Courier & Cargo',
     detail:
-      'Started my career building internal dashboards and CRUD apps. Learned the fundamentals of shipping production code under deadline.',
+      'Built React + Tailwind interfaces and shipped REST APIs alongside MongoDB schemas. Mentored junior developers, ran code reviews, and coordinated frontend, backend, and design teams to keep delivery on schedule.',
   },
   {
-    t: 0.34,
-    year: '2022',
-    title: 'Frontend Engineer',
-    company: 'Growth Co.',
+    t: 0.5,
+    year: 'Aug 2024',
+    title: 'Frontend Web Developer',
+    company: 'TechCharm India',
     detail:
-      'Owned the customer-facing web app — migrated to React, set up the design system, and cut Largest Contentful Paint by 60%.',
+      'Lead developer on Angular + NgRx applications with REST API integration — improved data processing efficiency by 20%. Drove state management across complex UIs and mentored the team toward higher engineering standards.',
   },
   {
-    t: 0.62,
-    year: '2024',
-    title: 'Senior Engineer',
-    company: 'Scale Co.',
+    t: 0.9,
+    year: 'Feb 2025 — Present',
+    title: 'MEAN Stack Developer',
+    company: 'Dealmoney Commodities',
     detail:
-      'Led a team of four, designed real-time data pipelines, and shipped the WebGL-powered visualization layer used by enterprise clients.',
-  },
-  {
-    t: 0.92,
-    year: '2026',
-    title: 'Lead / Today',
-    company: 'Currently Available',
-    detail:
-      'Open to building the next ambitious thing. Interested in interactive 3D, dev tooling, and AI-augmented developer experiences.',
+      'Building modular, scalable Angular (up to v19) + Node + Express + MongoDB applications with NgRx, GSAP, and Angular Material. Deploying on Linux/Nginx with secure auth, role-based access, and clean CI/CD via Git.',
   },
 ];
 

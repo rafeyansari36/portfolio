@@ -6,54 +6,64 @@ import { useInView, useMediaQuery } from './hooks.js';
 
 const PROJECTS = [
   {
-    name: 'Aurora Editor',
+    name: 'Apple iPhone 15 Pro',
     description:
-      'Real-time collaborative Markdown editor with end-to-end CRDT sync. Used by 50K+ writers across 80 countries.',
-    tags: ['React', 'WebRTC', 'Yjs', 'PostgreSQL'],
-    color: '#ff6b6b',
+      'Interactive 3D landing for the iPhone 15 Pro — React Three Fiber for the titanium hero model, GSAP for cinematic transitions, and Sentry instrumented for performance.',
+    tags: ['React', 'GSAP', 'React Three Fiber'],
+    color: '#bdb2ff',
     position: [-3.6, 1.3, 0.5],
-    size: 0.55,
-    link: 'https://example.com',
+    size: 0.58,
+    link: 'https://1phone15.netlify.app/',
   },
   {
-    name: 'Chronicle AI',
+    name: 'Imaginify',
     description:
-      'AI-assisted code review tool. Integrates with GitHub Actions, flags security and performance regressions automatically.',
-    tags: ['Node.js', 'OpenAI', 'TypeScript', 'Redis'],
+      'Next.js + TypeScript image studio powered by Cloudinary AI — restore, generative fill, object remove/recolor, and background removal, with a community feed.',
+    tags: ['Next.js', 'Cloudinary AI', 'TypeScript'],
     color: '#4ecdc4',
     position: [3.2, 0.6, -1.6],
-    size: 0.5,
-    link: 'https://example.com',
+    size: 0.52,
+    link: 'https://imaginify-kappa-two.vercel.app/',
   },
   {
-    name: 'Helio Charts',
+    name: 'NooriAI — Image Generator',
     description:
-      'WebGL-based data visualization layer for enterprise analytics. Renders 1M+ points at 60 FPS with smart LOD.',
-    tags: ['Three.js', 'D3', 'WebGL', 'Rust/WASM'],
+      'MERN-stack AI image generator with text/voice prompts, Cloudinary pipelines, and post-processing filters (grayscale, sepia, blur). Includes a community share board.',
+    tags: ['MERN', 'OpenAI', 'Cloudinary'],
     color: '#ffe66d',
     position: [0.4, -1.5, 1.8],
     size: 0.6,
-    link: 'https://example.com',
+    link: 'https://nooriai.netlify.app/',
   },
   {
-    name: 'Tempo CLI',
+    name: 'TshirtJS',
     description:
-      'Open-source CLI for orchestrating local dev environments. 5K+ stars on GitHub, used by teams at three YC startups.',
-    tags: ['Rust', 'CLI', 'OSS'],
-    color: '#a8dadc',
+      'Responsive 3D SaaS for customizing T-shirts in real time — React + Three.js for the model, Express + OpenAI for AI-generated logos and patterns, with downloadable output.',
+    tags: ['React', 'Three.js', 'OpenAI'],
+    color: '#ff6b6b',
     position: [-2.4, -1.1, -2.2],
-    size: 0.42,
-    link: 'https://example.com',
+    size: 0.5,
+    link: 'https://tshirtjs.netlify.app/',
   },
   {
-    name: 'Nova Auth',
+    name: 'Real Estate Management',
     description:
-      'Drop-in passwordless auth service with WebAuthn. Self-hostable, SOC 2 friendly, zero npm deps in the runtime.',
-    tags: ['Go', 'WebAuthn', 'Self-host'],
-    color: '#bdb2ff',
+      'Full MERN real-estate platform with user verification, transactional email flows, and admin tools for listings — backed by MongoDB + Express + React.',
+    tags: ['React', 'Node.js', 'MongoDB'],
+    color: '#a8dadc',
     position: [2.1, 1.7, 1.3],
-    size: 0.45,
-    link: 'https://example.com',
+    size: 0.46,
+    link: 'https://uyorooms.netlify.app/',
+  },
+  {
+    name: 'Face Recognition Attendance',
+    description:
+      'ML-driven attendance system using OpenCV + Python. Captures faces, builds embeddings, and matches in real time — built as a Machine Learning capstone.',
+    tags: ['Python', 'OpenCV', 'Machine Learning'],
+    color: '#9bd1ff',
+    position: [-1.4, 0.4, 2.6],
+    size: 0.44,
+    link: 'https://github.com/rafeldo36/face-recognition-based-attendancy-system',
   },
 ];
 
@@ -166,7 +176,7 @@ export default function Projects() {
       <div className="section-header">
         <div className="section-tag">03 — Work</div>
         <h2>Selected projects</h2>
-        <p>Tap a planet to read about the build.</p>
+        <p>Tap a planet to read about the build — then visit it live.</p>
       </div>
 
       <div className="section-canvas projects-canvas">
@@ -206,15 +216,25 @@ export default function Projects() {
               <span key={t}>{t}</span>
             ))}
           </div>
-          <div className="project-pager">
-            {PROJECTS.map((_, i) => (
-              <button
-                key={i}
-                className={`project-pager-dot ${i === activeIdx ? 'active' : ''}`}
-                onClick={() => setActiveIdx(i)}
-                aria-label={`View project ${i + 1}`}
-              />
-            ))}
+          <div className="project-card-footer">
+            <a
+              className="project-link"
+              href={active.link}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Visit project →
+            </a>
+            <div className="project-pager">
+              {PROJECTS.map((_, i) => (
+                <button
+                  key={i}
+                  className={`project-pager-dot ${i === activeIdx ? 'active' : ''}`}
+                  onClick={() => setActiveIdx(i)}
+                  aria-label={`View project ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

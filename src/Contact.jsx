@@ -163,6 +163,12 @@ export default function Contact() {
 
   function onSubmit(e) {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const fromEmail = formData.get('email') || '';
+    const message = formData.get('message') || '';
+    const subject = encodeURIComponent('Project enquiry — via portfolio');
+    const body = encodeURIComponent(`${message}\n\n— sent from ${fromEmail}`);
+    window.location.href = `mailto:rafeldo36@gmail.com?subject=${subject}&body=${body}`;
     setSent(true);
     setTimeout(() => setSent(false), 4000);
   }
@@ -192,26 +198,34 @@ export default function Contact() {
 
         <div className="contact-overlay">
           <div className="section-tag">05 — Connect</div>
-          <h2>Pull yourself in.</h2>
+          <h2>Let's build something.</h2>
           <p>
             Have a project in mind? Send a signal — it'll reach me on the other
             side.
           </p>
 
           <form className="contact-form" onSubmit={onSubmit}>
-            <input type="email" placeholder="your@email.com" required />
-            <textarea placeholder="What are you building?" rows={4} required />
+            <input
+              type="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="What are you building?"
+              rows={4}
+              required
+            />
             <button type="submit">{sent ? 'Signal sent ✓' : 'Send →'}</button>
           </form>
 
           <div className="contact-socials">
-            <a href="mailto:hello@example.com">Email</a>
+            <a href="mailto:rafeldo36@gmail.com">Email</a>
             <span>·</span>
-            <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://github.com/rafeldo36" target="_blank" rel="noreferrer">GitHub</a>
             <span>·</span>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-            <span>·</span>
-            <a href="https://twitter.com" target="_blank" rel="noreferrer">X</a>
+            <a href="https://www.linkedin.com/in/rafeyansari" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
         </div>
       </div>

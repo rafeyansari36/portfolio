@@ -5,18 +5,18 @@ import * as THREE from 'three';
 import { useInView, useMediaQuery } from './hooks.js';
 
 const SKILLS = [
+  { name: 'Angular',    color: '#dd0031' },
   { name: 'React',      color: '#61dafb' },
   { name: 'TypeScript', color: '#3178c6' },
+  { name: 'JavaScript', color: '#f7df1e' },
   { name: 'Node.js',    color: '#83cd29' },
+  { name: 'Express',    color: '#cccccc' },
+  { name: 'MongoDB',    color: '#4db33d' },
+  { name: 'NgRx',       color: '#b7178c' },
   { name: 'Three.js',   color: '#ffffff' },
-  { name: 'Next.js',    color: '#cccccc' },
-  { name: 'Python',     color: '#ffd141' },
-  { name: 'PostgreSQL', color: '#74a4d6' },
-  { name: 'Docker',     color: '#2496ed' },
-  { name: 'AWS',        color: '#ff9900' },
-  { name: 'GraphQL',    color: '#e10098' },
   { name: 'Tailwind',   color: '#38bdf8' },
-  { name: 'Redis',      color: '#dc382d' },
+  { name: 'SCSS',       color: '#cd6799' },
+  { name: 'Git',        color: '#f05033' },
 ];
 
 function Core() {
@@ -159,7 +159,7 @@ export default function Skills() {
       <div className="section-header">
         <div className="section-tag">02 — Stack</div>
         <h2>Tools of the trade</h2>
-        <p>The tech I orbit through to build, ship, and scale.</p>
+        <p>The MEAN/MERN core I orbit through every day — from Angular &amp; NgRx to Node, MongoDB, and Three.js.</p>
       </div>
 
       <div className="section-canvas">

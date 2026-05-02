@@ -578,6 +578,31 @@ body,
   letter-spacing: 0.04em;
 }
 
+.project-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.project-link {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid rgba(110, 168, 254, 0.35);
+  border-radius: 999px;
+  padding: 6px 14px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.project-link:hover {
+  background: rgba(110, 168, 254, 0.12);
+  color: var(--fg);
+  transform: translateY(-1px);
+}
+
 .project-pager {
   display: flex;
   gap: 10px;

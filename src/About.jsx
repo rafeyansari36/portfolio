@@ -5,12 +5,12 @@ import * as THREE from 'three';
 import { useInView } from './hooks.js';
 
 const LOCATIONS = [
-  { lat: 19.0760,  lng: 72.8777,  label: 'Mumbai',     note: 'Where it began.' },
-  { lat: 28.6139,  lng: 77.2090,  label: 'Delhi',      note: 'Early enterprise gigs.' },
-  { lat: 12.9716,  lng: 77.5946,  label: 'Bengaluru',  note: 'Startup years.' },
-  { lat: 1.3521,   lng: 103.8198, label: 'Singapore',  note: 'Regional remote work.' },
-  { lat: 51.5074,  lng: -0.1278,  label: 'London',     note: 'Client engagements.' },
-  { lat: 40.7128,  lng: -74.0060, label: 'New York',   note: 'Conference + meetings.' },
+  { lat: 19.0760,  lng: 72.8777,  label: 'Mumbai',     note: 'Home base.' },
+  { lat: 28.6139,  lng: 77.2090,  label: 'Delhi',      note: 'Client engagements.' },
+  { lat: 12.9716,  lng: 77.5946,  label: 'Bengaluru',  note: 'Tech meetups.' },
+  { lat: 1.3521,   lng: 103.8198, label: 'Singapore',  note: 'Where products reach.' },
+  { lat: 51.5074,  lng: -0.1278,  label: 'London',     note: 'Global users.' },
+  { lat: 40.7128,  lng: -74.0060, label: 'New York',   note: 'Cross-timezone work.' },
 ];
 
 const PIN_RADIUS = 1.18;
@@ -109,30 +109,32 @@ export default function About() {
       <div className="about-grid">
         <div className="about-text">
           <div className="section-tag">04 — About</div>
-          <h2>From local builds to global users.</h2>
+          <h2>Engineering with intent — design, depth, and detail.</h2>
           <p>
-            I'm a full-stack engineer who's spent the past few years shipping
-            interactive products from the shores of the Arabian Sea to the
-            screens of users in six time zones.
+            I'm Rafey Ansari — a software engineer based in Mumbai with a
+            unique blend of technical expertise and design acumen. I specialize
+            in user-centered, robust web applications across the
+            Angular/React, MEAN, and MERN ecosystems.
           </p>
           <p>
-            I care about polish: the kind of detail that makes you do a tiny
-            double-take. I write a lot of TypeScript, a fair bit of Rust, and
-            spend most of my evenings learning shaders.
+            My day-to-day is TypeScript, NgRx, and RxJS on the frontend; Node,
+            Express, and MongoDB on the backend; SCSS, Tailwind, and GSAP for
+            the polish. Hands-on experience shipping for Pafex.Co, TechCharm
+            India, and Dealmoney Commodities.
           </p>
 
           <div className="about-stats">
             <div>
-              <strong>6+</strong>
+              <strong>3+</strong>
               <span>years shipping</span>
             </div>
             <div>
-              <strong>{LOCATIONS.length}</strong>
-              <span>cities collaborated</span>
+              <strong>3</strong>
+              <span>companies collaborated</span>
             </div>
             <div>
-              <strong>1M+</strong>
-              <span>users reached</span>
+              <strong>10+</strong>
+              <span>products delivered</span>
             </div>
           </div>
 
