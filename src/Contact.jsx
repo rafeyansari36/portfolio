@@ -168,7 +168,7 @@ export default function Contact() {
     const message = formData.get('message') || '';
     const subject = encodeURIComponent('Project enquiry — via portfolio');
     const body = encodeURIComponent(`${message}\n\n— sent from ${fromEmail}`);
-    window.location.href = `mailto:rafeldo36@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:rafeyaslamansari@gmail.com?subject=${subject}&body=${body}`;
     setSent(true);
     setTimeout(() => setSent(false), 4000);
   }
@@ -221,7 +221,7 @@ export default function Contact() {
           </form>
 
           <div className="contact-socials">
-            <a href="mailto:rafeldo36@gmail.com">Email</a>
+            <a href="mailto:rafeyaslamansari@gmail.com">Email</a>
             <span>·</span>
             <a href="https://github.com/rafeldo36" target="_blank" rel="noreferrer">GitHub</a>
             <span>·</span>
