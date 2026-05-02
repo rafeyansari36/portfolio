@@ -5,10 +5,11 @@ import * as THREE from 'three';
 import { useInView } from './hooks.js';
 
 const LOCATIONS = [
-  { lat: 19.0760,  lng: 72.8777,  label: 'Mumbai',     note: 'Home base.' },
+  { lat: 19.2183,  lng: 72.9781,  label: 'Thane',      note: 'Home base.' },
+  { lat: 19.2967,  lng: 73.0639,  label: 'Bhiwandi',   note: 'Pafex office.' },
+  { lat: 19.0760,  lng: 72.8777,  label: 'Mumbai',     note: 'University & meetups.' },
   { lat: 28.6139,  lng: 77.2090,  label: 'Delhi',      note: 'Client engagements.' },
-  { lat: 12.9716,  lng: 77.5946,  label: 'Bengaluru',  note: 'Tech meetups.' },
-  { lat: 1.3521,   lng: 103.8198, label: 'Singapore',  note: 'Where products reach.' },
+  { lat: 12.9716,  lng: 77.5946,  label: 'Bengaluru',  note: 'Remote team work.' },
   { lat: 51.5074,  lng: -0.1278,  label: 'London',     note: 'Global users.' },
   { lat: 40.7128,  lng: -74.0060, label: 'New York',   note: 'Cross-timezone work.' },
 ];
@@ -109,34 +110,58 @@ export default function About() {
       <div className="about-grid">
         <div className="about-text">
           <div className="section-tag">04 — About</div>
-          <h2>Engineering with intent — design, depth, and detail.</h2>
+          <h2>Frontend Developer · Angular, React, TypeScript.</h2>
           <p>
-            I'm Rafey Ansari — a software engineer based in Mumbai with a
-            unique blend of technical expertise and design acumen. I specialize
-            in user-centered, robust web applications across the
-            Angular/React, MEAN, and MERN ecosystems.
+            I'm Rafey Ansari — a frontend developer based in Thane,
+            Maharashtra, with 2.5+ years building high-performance, scalable
+            web apps. I specialize in NgRx state management, performance
+            optimization, and component-driven architecture.
           </p>
           <p>
-            My day-to-day is TypeScript, NgRx, and RxJS on the frontend; Node,
-            Express, and MongoDB on the backend; SCSS, Tailwind, and GSAP for
-            the polish. Hands-on experience shipping for Pafex.Co, TechCharm
-            India, and Dealmoney Commodities.
+            I've improved app performance by up to 40%, lifted Lighthouse
+            scores from 68 → 92, shipped reusable Angular component libraries,
+            and built enterprise dashboards handling real-time data — across
+            Pafex, TechCharm India, and Dealmoney Commodities.
           </p>
 
           <div className="about-stats">
             <div>
-              <strong>3+</strong>
+              <strong>2.5+</strong>
               <span>years shipping</span>
             </div>
             <div>
-              <strong>3</strong>
-              <span>companies collaborated</span>
+              <strong>40%</strong>
+              <span>perf gains delivered</span>
             </div>
             <div>
-              <strong>10+</strong>
-              <span>products delivered</span>
+              <strong>800+</strong>
+              <span>npm downloads</span>
             </div>
           </div>
+
+          <ul className="about-creds">
+            <li>
+              <span className="cred-tag">Open Source</span>
+              <span>
+                <a
+                  href="https://www.npmjs.com/package/raui-components"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  raui-components
+                </a>{' '}
+                — Angular UI library on npm (800+ downloads)
+              </span>
+            </li>
+            <li>
+              <span className="cred-tag">Education</span>
+              <span>B.E. Information Technology — Mumbai University · CGPA 9.13/10</span>
+            </li>
+            <li>
+              <span className="cred-tag">Certified</span>
+              <span>AWS Cloud Foundations · HackerRank Angular · Accolade Award (TechCharm '24)</span>
+            </li>
+          </ul>
 
           <div className="about-credit">
             Globe model:{' '}

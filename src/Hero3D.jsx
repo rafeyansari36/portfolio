@@ -18,22 +18,23 @@ function TorusKnot() {
     }
   });
 
+  // Pushed off-center so the typography in the foreground stays the hero.
   return (
     <Float speed={1.4} floatIntensity={0.4} rotationIntensity={0.15}>
-      <group>
+      <group position={[2.6, -1.1, -1.2]}>
         <mesh ref={solid}>
-          <torusKnotGeometry args={[0.9, 0.28, 220, 32, 2, 3]} />
+          <torusKnotGeometry args={[0.7, 0.22, 220, 32, 2, 3]} />
           <meshStandardMaterial
             color="#6ea8fe"
             emissive="#6ea8fe"
-            emissiveIntensity={0.45}
-            roughness={0.25}
+            emissiveIntensity={0.18}
+            roughness={0.35}
             metalness={0.7}
           />
         </mesh>
         <mesh ref={wire}>
-          <torusKnotGeometry args={[0.94, 0.045, 220, 12, 2, 3]} />
-          <meshBasicMaterial color="#ffffff" wireframe transparent opacity={0.22} />
+          <torusKnotGeometry args={[0.74, 0.035, 220, 12, 2, 3]} />
+          <meshBasicMaterial color="#ffffff" wireframe transparent opacity={0.16} />
         </mesh>
       </group>
     </Float>
@@ -116,17 +117,17 @@ function MouseParallax() {
 export default function Hero3D({ inView = true }) {
   return (
     <Canvas
-      camera={{ position: [0, 0, 4], fov: 50 }}
+      camera={{ position: [0, 0, 5.5], fov: 50 }}
       frameloop={inView ? 'always' : 'never'}
       dpr={[1, 2]}
       gl={{ antialias: true, alpha: true }}
     >
       <color attach="background" args={['#05060a']} />
       <fog attach="fog" args={['#05060a', 8, 24]} />
-      <ambientLight intensity={0.35} />
-      <pointLight position={[3, 2, 4]} intensity={1.4} color="#6ea8fe" distance={12} />
-      <pointLight position={[-3, -1, 2]} intensity={0.7} color="#ff8fa9" distance={10} />
-      <directionalLight position={[5, 5, 5]} intensity={0.5} />
+      <ambientLight intensity={0.3} />
+      <pointLight position={[3, 2, 4]} intensity={0.8} color="#6ea8fe" distance={12} />
+      <pointLight position={[-3, -1, 2]} intensity={0.4} color="#ff8fa9" distance={10} />
+      <directionalLight position={[5, 5, 5]} intensity={0.35} />
       <Suspense fallback={null}>
         <StarField />
         <DriftingMotes />

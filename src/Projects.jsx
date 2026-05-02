@@ -6,13 +6,53 @@ import { useInView, useMediaQuery } from './hooks.js';
 
 const PROJECTS = [
   {
-    name: 'Apple iPhone 15 Pro',
+    name: 'Touch Onelife',
     description:
-      'Interactive 3D landing for the iPhone 15 Pro — React Three Fiber for the titanium hero model, GSAP for cinematic transitions, and Sentry instrumented for performance.',
-    tags: ['React', 'GSAP', 'React Three Fiber'],
-    color: '#bdb2ff',
+      'Data-rich Angular dashboard with animated charts, skeleton loaders, and silky page transitions. Reduced FCP through lazy-loaded routes and OnPush change detection.',
+    tags: ['Angular', 'RxJS', 'Chart.js'],
+    color: '#6ea8fe',
     position: [-3.6, 1.3, 0.5],
     size: 0.58,
+    link: null,
+  },
+  {
+    name: 'Family Care Hospitals',
+    description:
+      'Hospital management portal for appointments, doctor profiles, and patient records. Centralized NgRx state cut redundant API calls; deployed on Linux + Nginx with zero downtime.',
+    tags: ['Angular', 'NgRx', 'Node.js', 'Nginx'],
+    color: '#4ecdc4',
+    position: [3.2, 0.6, -1.6],
+    size: 0.54,
+    link: null,
+  },
+  {
+    name: 'Rubber Duck Debugging Journal',
+    description:
+      'Full-stack debugging companion that logs bugs and returns AI-generated root-cause analysis + fix suggestions. Optimistic React UI, dark mode, and a normalized PostgreSQL schema served by Spring Boot.',
+    tags: ['React', 'Spring Boot', 'PostgreSQL', 'AI'],
+    color: '#ffe66d',
+    position: [0.4, -1.5, 1.8],
+    size: 0.6,
+    link: null,
+  },
+  {
+    name: 'NooriAI — Image Generator',
+    description:
+      'Prompt-to-image pipeline on the OpenAI API with debounced requests, loading states, and graceful fallbacks. Cloudinary CDN for auto-format/responsive delivery and GSAP gallery transitions.',
+    tags: ['React', 'OpenAI', 'Cloudinary', 'GSAP'],
+    color: '#bdb2ff',
+    position: [-2.4, -1.1, -2.2],
+    size: 0.5,
+    link: 'https://nooriai.netlify.app/',
+  },
+  {
+    name: 'Apple iPhone 15 Pro',
+    description:
+      'Interactive 3D landing for the iPhone 15 Pro — React Three Fiber for the titanium hero model, GSAP for cinematic transitions, and Sentry instrumented for performance tracing.',
+    tags: ['React', 'GSAP', 'React Three Fiber'],
+    color: '#a8dadc',
+    position: [2.1, 1.7, 1.3],
+    size: 0.5,
     link: 'https://1phone15.netlify.app/',
   },
   {
@@ -20,20 +60,10 @@ const PROJECTS = [
     description:
       'Next.js + TypeScript image studio powered by Cloudinary AI — restore, generative fill, object remove/recolor, and background removal, with a community feed.',
     tags: ['Next.js', 'Cloudinary AI', 'TypeScript'],
-    color: '#4ecdc4',
-    position: [3.2, 0.6, -1.6],
-    size: 0.52,
+    color: '#9bd1ff',
+    position: [-1.4, 0.4, 2.6],
+    size: 0.46,
     link: 'https://imaginify-kappa-two.vercel.app/',
-  },
-  {
-    name: 'NooriAI — Image Generator',
-    description:
-      'MERN-stack AI image generator with text/voice prompts, Cloudinary pipelines, and post-processing filters (grayscale, sepia, blur). Includes a community share board.',
-    tags: ['MERN', 'OpenAI', 'Cloudinary'],
-    color: '#ffe66d',
-    position: [0.4, -1.5, 1.8],
-    size: 0.6,
-    link: 'https://nooriai.netlify.app/',
   },
   {
     name: 'TshirtJS',
@@ -41,29 +71,9 @@ const PROJECTS = [
       'Responsive 3D SaaS for customizing T-shirts in real time — React + Three.js for the model, Express + OpenAI for AI-generated logos and patterns, with downloadable output.',
     tags: ['React', 'Three.js', 'OpenAI'],
     color: '#ff6b6b',
-    position: [-2.4, -1.1, -2.2],
-    size: 0.5,
-    link: 'https://tshirtjs.netlify.app/',
-  },
-  {
-    name: 'Real Estate Management',
-    description:
-      'Full MERN real-estate platform with user verification, transactional email flows, and admin tools for listings — backed by MongoDB + Express + React.',
-    tags: ['React', 'Node.js', 'MongoDB'],
-    color: '#a8dadc',
-    position: [2.1, 1.7, 1.3],
+    position: [3.4, -1.9, 0.8],
     size: 0.46,
-    link: 'https://uyorooms.netlify.app/',
-  },
-  {
-    name: 'Face Recognition Attendance',
-    description:
-      'ML-driven attendance system using OpenCV + Python. Captures faces, builds embeddings, and matches in real time — built as a Machine Learning capstone.',
-    tags: ['Python', 'OpenCV', 'Machine Learning'],
-    color: '#9bd1ff',
-    position: [-1.4, 0.4, 2.6],
-    size: 0.44,
-    link: 'https://github.com/rafeldo36/face-recognition-based-attendancy-system',
+    link: 'https://tshirtjs.netlify.app/',
   },
 ];
 
@@ -217,14 +227,18 @@ export default function Projects() {
             ))}
           </div>
           <div className="project-card-footer">
-            <a
-              className="project-link"
-              href={active.link}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Visit project →
-            </a>
+            {active.link ? (
+              <a
+                className="project-link"
+                href={active.link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Visit project →
+              </a>
+            ) : (
+              <span className="project-link is-private">Private / Internal</span>
+            )}
             <div className="project-pager">
               {PROJECTS.map((_, i) => (
                 <button

@@ -6,19 +6,19 @@ import * as THREE from 'three';
 const EXPERIENCES = [
   {
     t: 0.1,
-    year: 'Nov 2023',
-    title: 'Frontend Web Developer',
+    year: 'Nov 2023 — Aug 2024',
+    title: 'Frontend Developer',
     company: 'Pafex Courier & Cargo',
     detail:
-      'Built React + Tailwind interfaces and shipped REST APIs alongside MongoDB schemas. Mentored junior developers, ran code reviews, and coordinated frontend, backend, and design teams to keep delivery on schedule.',
+      'Led a real-time shipment-tracking dashboard with Angular + Firebase, supporting 50+ concurrent users with sub-second update latency. Automated manual workflows to reclaim 3+ operational hours daily and built a typed API layer that cut endpoint integration effort by 60%.',
   },
   {
     t: 0.5,
-    year: 'Aug 2024',
-    title: 'Frontend Web Developer',
+    year: 'Aug 2024 — Feb 2025',
+    title: 'Frontend Developer',
     company: 'TechCharm India',
     detail:
-      'Lead developer on Angular + NgRx applications with REST API integration — improved data processing efficiency by 20%. Drove state management across complex UIs and mentored the team toward higher engineering standards.',
+      'Owned an enterprise-grade insurance platform with multi-step workflows, secure file uploads, and role-based access. Refactored legacy state to NgRx — eliminating race conditions across 8+ interdependent forms — and shipped 12+ documented Angular components that lifted team-wide delivery speed by 30%.',
   },
   {
     t: 0.9,
@@ -26,7 +26,7 @@ const EXPERIENCES = [
     title: 'MEAN Stack Developer',
     company: 'Dealmoney Commodities',
     detail:
-      'Building modular, scalable Angular (up to v19) + Node + Express + MongoDB applications with NgRx, GSAP, and Angular Material. Deploying on Linux/Nginx with secure auth, role-based access, and clean CI/CD via Git.',
+      'Boosted Lighthouse from 68 → 92 (+25%) via lazy loading, route-level code splitting, and OnPush. Architected NgRx for 5+ real-time trading dashboards and built resilient REST integrations with switchMap / retryWhen / catchError — cutting failed requests by 40%.',
   },
 ];
 
