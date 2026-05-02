@@ -94,6 +94,8 @@ body,
 
 .nav-links a {
   position: relative;
+  display: inline-flex;
+  align-items: center;
   color: var(--muted);
   text-decoration: none;
   font-size: 12px;
@@ -101,6 +103,11 @@ body,
   text-transform: uppercase;
   transition: color 0.2s ease, padding 0.2s ease;
   padding-right: 14px;
+}
+
+/* Icons are mobile-only — hidden on desktop where the right-rail is text only */
+.nav-links a .nav-icon {
+  display: none;
 }
 
 .nav-links a::after {
@@ -123,6 +130,17 @@ body,
 .nav-links a:hover::after {
   width: 14px;
   opacity: 1;
+}
+
+.nav-links a.is-active {
+  color: var(--fg);
+}
+
+.nav-links a.is-active::after {
+  width: 18px;
+  opacity: 1;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(110, 168, 254, 0.7);
 }
 
 .hero {
@@ -525,65 +543,340 @@ body,
   }
 }
 
-/* Tablet & smaller: collapse nav into a horizontal row above the footer */
+/* Tablet & smaller: collapse nav into a tabbar dock at the bottom */
 @media (max-width: 768px) {
   .nav-links {
     top: auto;
-    bottom: clamp(56px, 8vh, 80px);
+    bottom: clamp(14px, 3vh, 22px);
     right: 50%;
     transform: translateX(50%);
-    align-items: center;
+    align-items: stretch;
     flex-direction: row;
-    gap: 18px;
+    gap: 2px;
+    padding: 6px;
+    background: rgba(8, 11, 20, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow:
+      0 12px 40px -16px rgba(0, 0, 0, 0.65),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    z-index: 10;
+    max-width: calc(100vw - 16px);
   }
 
   .nav-links a {
-    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 7px 10px;
+    border-radius: 14px;
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    color: var(--muted);
+    transition:
+      color 0.25s ease,
+      background 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+      transform 0.2s ease;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .nav-links a::after {
     display: none;
   }
 
-  /* Shrink the globe to a centered box so the rest of the hero is empty
-     space for the page to capture scroll/swipe gestures. */
-  .canvas-wrap {
-    inset: auto;
-    top: 50%;
-    left: 50%;
-    width: min(90vw, 460px);
-    height: min(55vh, 460px);
-    transform: translate(-50%, -52%);
+  .nav-links a .nav-icon {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    align-items: center;
+    justify-content: center;
   }
 
-  /* Even within the canvas, allow vertical pan to bubble up to the page so
-     swipe-to-scroll works when the user starts the gesture on the globe. */
+  .nav-links a .nav-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .nav-links a .nav-label {
+    font-weight: 500;
+  }
+
+  .nav-links a:hover {
+    padding-right: 10px;  /* override desktop hover-padding for icon layout */
+    color: #cdd9ee;
+  }
+
+  .nav-links a.is-active {
+    color: var(--accent);
+    background: linear-gradient(
+      180deg,
+      rgba(110, 168, 254, 0.18) 0%,
+      rgba(110, 168, 254, 0.08) 100%
+    );
+    box-shadow:
+      inset 0 0 0 1px rgba(110, 168, 254, 0.28),
+      0 4px 14px -8px rgba(110, 168, 254, 0.55);
+  }
+
+  .nav-links a.is-active .nav-icon {
+    filter: drop-shadow(0 0 6px rgba(110, 168, 254, 0.7));
+  }
+
+  .nav-links a:active {
+    transform: scale(0.94);
+  }
+
+  /* Canvas fills the full hero on mobile too — scroll gestures bubble up
+     because of touch-action: pan-y on the canvas itself. */
   .canvas-wrap canvas {
     touch-action: pan-y !important;
   }
-}
 
-/* Very small screens: tighten brand and footer */
-@media (max-width: 420px) {
+  /* Lighter scrim on mobile so the centered 3D model reads through the
+     text background instead of being hidden behind a hard dark veil. */
+  .hero::before {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(5, 6, 10, 0.55) 0%,
+      rgba(5, 6, 10, 0.28) 35%,
+      rgba(5, 6, 10, 0) 70%
+    );
+    height: 50vh;
+    filter: blur(20px);
+  }
+
+  .hero h1::before {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(5, 6, 10, 0.62) 0%,
+      rgba(5, 6, 10, 0.35) 35%,
+      rgba(5, 6, 10, 0) 70%
+    );
+    filter: blur(14px);
+  }
+
+  /* --- Hero — mobile portrait --- */
+  .hero {
+    padding: clamp(60px, 9vh, 110px) 20px clamp(90px, 14vh, 130px);
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 9vw, 56px);
+    line-height: 1.08;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    padding: 5px 12px;
+    letter-spacing: 0.16em;
+    margin-bottom: clamp(14px, 2.4vh, 22px);
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    line-height: 1.65;
+    margin-top: 14px;
+  }
+
+  .hero-ctas {
+    margin-top: 22px;
+    gap: 10px;
+  }
+
+  .magnetic-btn {
+    padding: 11px 18px;
+    font-size: 12px;
+  }
+
+  .scroll-hint {
+    margin-top: 22px;
+    font-size: 10px;
+  }
+
+  /* --- Sections need bottom clearance for the floating nav pill --- */
+  .project-card {
+    bottom: clamp(82px, 12vh, 110px);
+  }
+
+  .exp-cards {
+    bottom: clamp(110px, 16vh, 150px);
+  }
+
+  .contact-overlay {
+    padding-bottom: clamp(96px, 14vh, 120px);
+  }
+
+  .about-section {
+    padding-bottom: clamp(100px, 16vh, 150px);
+  }
+
+  /* Brand stays fixed top-left but tighten on mobile */
   .brand {
     font-size: 11px;
+  }
+
+  /* About credentials — tighter tag column on tablet/mobile */
+  .about-creds .cred-tag {
+    width: 78px;
+  }
+
+  /* Project card footer — tighter spacing for narrower viewports */
+  .project-card-footer {
+    gap: 10px;
+  }
+
+  .project-link {
+    font-size: 11px;
+    padding: 5px 11px;
+  }
+}
+
+/* Very small screens: tighten brand, nav, hero, and stack about creds */
+@media (max-width: 420px) {
+  .brand {
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    top: 14px;
+    left: 14px;
   }
 
   .footer {
     font-size: 10px;
     line-height: 1.4;
   }
+
+  .nav-links {
+    gap: 1px;
+    padding: 5px;
+    border-radius: 18px;
+  }
+
+  .nav-links a {
+    padding: 6px 7px;
+    font-size: 8.5px;
+    letter-spacing: 0.08em;
+    gap: 2px;
+    border-radius: 12px;
+  }
+
+  .nav-links a .nav-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 9.5vw, 44px);
+  }
+
+  .hero-eyebrow {
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    padding: 4px 10px;
+  }
+
+  .hero-eyebrow .hero-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .hero-sub {
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .magnetic-btn {
+    padding: 10px 16px;
+    font-size: 11.5px;
+  }
+
+  .about-creds li {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .about-creds .cred-tag {
+    width: auto;
+  }
 }
 
 /* Landscape phones: keep hero from overflowing */
 @media (max-height: 480px) {
   .hero {
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 56px;
+    padding-bottom: 90px;
   }
 
-  .hero p {
+  .hero-eyebrow {
+    margin-bottom: 10px;
+    font-size: 9.5px;
+    padding: 4px 10px;
+  }
+
+  .hero h1 {
+    font-size: clamp(24px, 5vw, 36px);
+  }
+
+  .hero p,
+  .hero-sub {
     margin-top: 8px;
+    font-size: 12.5px;
+    line-height: 1.55;
+  }
+
+  .hero-ctas {
+    margin-top: 14px;
+    gap: 8px;
+  }
+
+  .magnetic-btn {
+    padding: 9px 16px;
+    font-size: 12px;
+  }
+
+  .scroll-hint {
+    display: none;
+  }
+
+  /* Bottom nav dock — flatter footprint in landscape */
+  .nav-links {
+    bottom: 8px;
+    padding: 4px;
+    gap: 1px;
+    border-radius: 16px;
+  }
+
+  .nav-links a {
+    padding: 5px 8px;
+    gap: 2px;
+    font-size: 8.5px;
+  }
+
+  .nav-links a .nav-label {
+    display: none;
+  }
+
+  .nav-links a .nav-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Section bottoms: nav pill is shallower in landscape */
+  .project-card {
+    bottom: clamp(60px, 14vh, 90px);
+  }
+
+  .exp-cards {
+    bottom: clamp(80px, 18vh, 110px);
+  }
+
+  .contact-overlay {
+    padding-bottom: clamp(72px, 16vh, 100px);
   }
 }
 
@@ -1264,17 +1557,4 @@ body.has-custom-cursor * {
   background: transparent;
   color: var(--muted);
   transform: none;
-}
-
-@media (max-width: 768px) {
-  .hero-ctas {
-    gap: 10px;
-  }
-  .magnetic-btn {
-    padding: 11px 18px;
-    font-size: 12px;
-  }
-  .about-creds .cred-tag {
-    width: 78px;
-  }
 }

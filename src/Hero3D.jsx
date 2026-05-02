@@ -3,7 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 
-function TorusKnot() {
+function TorusKnot({ isMobile = false }) {
   const solid = useRef();
   const wire = useRef();
 
@@ -18,23 +18,29 @@ function TorusKnot() {
     }
   });
 
-  // Pushed off-center so the typography in the foreground stays the hero.
+  // Desktop: pushed off-center so the typography stays the hero.
+  // Mobile: centered behind the text — the smaller canvas needs the model
+  // dead-center to read as a hero element rather than a stray corner blob.
+  const position = isMobile ? [0, 0, -0.5] : [2.6, -1.1, -1.2];
+  const tubeRadius = isMobile ? 0.75 : 0.7;
+  const thickness = isMobile ? 0.24 : 0.22;
+
   return (
     <Float speed={1.4} floatIntensity={0.4} rotationIntensity={0.15}>
-      <group position={[2.6, -1.1, -1.2]}>
+      <group position={position}>
         <mesh ref={solid}>
-          <torusKnotGeometry args={[0.7, 0.22, 220, 32, 2, 3]} />
+          <torusKnotGeometry args={[tubeRadius, thickness, 220, 32, 2, 3]} />
           <meshStandardMaterial
             color="#6ea8fe"
             emissive="#6ea8fe"
-            emissiveIntensity={0.18}
+            emissiveIntensity={isMobile ? 0.22 : 0.18}
             roughness={0.35}
             metalness={0.7}
           />
         </mesh>
         <mesh ref={wire}>
-          <torusKnotGeometry args={[0.74, 0.035, 220, 12, 2, 3]} />
-          <meshBasicMaterial color="#ffffff" wireframe transparent opacity={0.16} />
+          <torusKnotGeometry args={[tubeRadius + 0.04, 0.035, 220, 12, 2, 3]} />
+          <meshBasicMaterial color="#ffffff" wireframe transparent opacity={0.18} />
         </mesh>
       </group>
     </Float>
@@ -104,20 +110,25 @@ function DriftingMotes() {
   );
 }
 
-function MouseParallax() {
-  const target = useMemo(() => new THREE.Vector3(0, 0, 4), []);
+function MouseParallax({ isMobile = false }) {
+  const baseZ = isMobile ? 5.2 : 5.5;
+  const target = useMemo(() => new THREE.Vector3(0, 0, baseZ), [baseZ]);
+  // Reduce parallax on mobile — touch devices don't track a mouse, so the
+  // effect is barely felt anyway, and a still framing reads cleaner.
+  const sway = isMobile ? 0.18 : 0.5;
+  const swayY = isMobile ? 0.12 : 0.35;
   useFrame(({ camera, mouse }) => {
-    target.set(mouse.x * 0.5, mouse.y * 0.35, 4);
+    target.set(mouse.x * sway, mouse.y * swayY, baseZ);
     camera.position.lerp(target, 0.04);
     camera.lookAt(0, 0, 0);
   });
   return null;
 }
 
-export default function Hero3D({ inView = true }) {
+export default function Hero3D({ inView = true, isMobile = false }) {
   return (
     <Canvas
-      camera={{ position: [0, 0, 5.5], fov: 50 }}
+      camera={{ position: [0, 0, isMobile ? 5.2 : 5.5], fov: isMobile ? 55 : 50 }}
       frameloop={inView ? 'always' : 'never'}
       dpr={[1, 2]}
       gl={{ antialias: true, alpha: true }}
@@ -131,9 +142,9 @@ export default function Hero3D({ inView = true }) {
       <Suspense fallback={null}>
         <StarField />
         <DriftingMotes />
-        <TorusKnot />
+        <TorusKnot isMobile={isMobile} />
       </Suspense>
-      <MouseParallax />
+      <MouseParallax isMobile={isMobile} />
     </Canvas>
   );
 }
