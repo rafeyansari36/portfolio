@@ -112,7 +112,7 @@ export default function About() {
           <div className="section-tag">04 — About</div>
           <h2>Frontend Developer · Angular, React, TypeScript.</h2>
           <p>
-            I'm Rafey Ansari — a frontend developer based in Thane,
+            I'm Rafey Ansari a frontend developer based in Thane,
             Maharashtra, with 2.5+ years building high-performance, scalable
             web apps. I specialize in NgRx state management, performance
             optimization, and component-driven architecture.
@@ -120,7 +120,7 @@ export default function About() {
           <p>
             I've improved app performance by up to 40%, lifted Lighthouse
             scores from 68 → 92, shipped reusable Angular component libraries,
-            and built enterprise dashboards handling real-time data — across
+            and built enterprise dashboards handling real-time data across
             Pafex, TechCharm India, and Dealmoney Commodities.
           </p>
 
@@ -148,21 +148,21 @@ export default function About() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  raui-components
+                  raui-components: 
                 </a>{' '}
-                — Angular UI library on npm (800+ downloads)
+                 Angular UI library on npm (800+ downloads)
               </span>
             </li>
             <li>
               <span className="cred-tag">Education</span>
-              <span>B.E. Information Technology — Mumbai University · CGPA 9.13/10</span>
+              <span>B.E. Information Technology, Mumbai University · CGPA 9.13/10</span>
             </li>
             <li>
               <span className="cred-tag">Certified</span>
               <span>AWS Cloud Foundations · HackerRank Angular · Accolade Award (TechCharm '24)</span>
             </li>
           </ul>
-
+{/* 
           <div className="about-credit">
             Globe model:{' '}
             <a
@@ -173,7 +173,7 @@ export default function About() {
               "Stylized planet"
             </a>{' '}
             by cmzw — CC-BY-4.0
-          </div>
+          </div> */}
         </div>
 
         <div className="about-canvas-wrap">

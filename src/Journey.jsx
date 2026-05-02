@@ -18,7 +18,7 @@ const EXPERIENCES = [
     title: 'Frontend Developer',
     company: 'TechCharm India',
     detail:
-      'Owned an enterprise-grade insurance platform with multi-step workflows, secure file uploads, and role-based access. Refactored legacy state to NgRx — eliminating race conditions across 8+ interdependent forms — and shipped 12+ documented Angular components that lifted team-wide delivery speed by 30%.',
+      'Owned an enterprise-grade insurance platform with multi-step workflows, secure file uploads, and role-based access. Refactored legacy state to NgRx eliminating race conditions across 8+ interdependent forms and shipped 12+ documented Angular components that lifted team-wide delivery speed by 30%.',
   },
   {
     t: 0.9,
@@ -26,7 +26,7 @@ const EXPERIENCES = [
     title: 'MEAN Stack Developer',
     company: 'Dealmoney Commodities',
     detail:
-      'Boosted Lighthouse from 68 → 92 (+25%) via lazy loading, route-level code splitting, and OnPush. Architected NgRx for 5+ real-time trading dashboards and built resilient REST integrations with switchMap / retryWhen / catchError — cutting failed requests by 40%.',
+      'Boosted Lighthouse from 68 → 92 (+25%) via lazy loading, route-level code splitting, and OnPush. Architected NgRx for 5+ real-time trading dashboards and built resilient REST integrations with switchMap / retryWhen / catchError cutting failed requests by 40%.',
   },
 ];
 

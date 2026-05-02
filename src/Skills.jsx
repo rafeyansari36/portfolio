@@ -159,7 +159,7 @@ export default function Skills() {
       <div className="section-header">
         <div className="section-tag">02 — Stack</div>
         <h2>Tools of the trade</h2>
-        <p>The MEAN/MERN core I orbit through every day — from Angular &amp; NgRx to Node, MongoDB, and Three.js.</p>
+        <p>The MEAN/MERN core I orbit through every day from Angular &amp; NgRx to Node, MongoDB, and Three.js.</p>
       </div>
 
       <div className="section-canvas">

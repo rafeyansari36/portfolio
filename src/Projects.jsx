@@ -48,7 +48,7 @@ const PROJECTS = [
   {
     name: 'Apple iPhone 15 Pro',
     description:
-      'Interactive 3D landing for the iPhone 15 Pro — React Three Fiber for the titanium hero model, GSAP for cinematic transitions, and Sentry instrumented for performance tracing.',
+      'Interactive 3D landing for the iPhone 15 Pro, React Three Fiber for the titanium hero model, GSAP for cinematic transitions, and Sentry instrumented for performance tracing.',
     tags: ['React', 'GSAP', 'React Three Fiber'],
     color: '#a8dadc',
     position: [2.1, 1.7, 1.3],
@@ -58,7 +58,7 @@ const PROJECTS = [
   {
     name: 'Imaginify',
     description:
-      'Next.js + TypeScript image studio powered by Cloudinary AI — restore, generative fill, object remove/recolor, and background removal, with a community feed.',
+      'Next.js + TypeScript image studio powered by Cloudinary AI, restore, generative fill, object remove/recolor, and background removal, with a community feed.',
     tags: ['Next.js', 'Cloudinary AI', 'TypeScript'],
     color: '#9bd1ff',
     position: [-1.4, 0.4, 2.6],
@@ -68,7 +68,7 @@ const PROJECTS = [
   {
     name: 'TshirtJS',
     description:
-      'Responsive 3D SaaS for customizing T-shirts in real time — React + Three.js for the model, Express + OpenAI for AI-generated logos and patterns, with downloadable output.',
+      'Responsive 3D SaaS for customizing T-shirts in real time, React + Three.js for the model, Express + OpenAI for AI-generated logos and patterns, with downloadable output.',
     tags: ['React', 'Three.js', 'OpenAI'],
     color: '#ff6b6b',
     position: [3.4, -1.9, 0.8],
@@ -186,7 +186,7 @@ export default function Projects() {
       <div className="section-header">
         <div className="section-tag">03 — Work</div>
         <h2>Selected projects</h2>
-        <p>Tap a planet to read about the build — then visit it live.</p>
+        <p>Tap a planet to read about the build then visit it live.</p>
       </div>
 
       <div className="section-canvas projects-canvas">
