@@ -36,7 +36,7 @@ const PROJECTS = [
     link: null,
   },
   {
-    name: 'NooriAI — Image Generator',
+    name: 'NooriAI - Image Generator',
     description:
       'Prompt-to-image pipeline on the OpenAI API with debounced requests, loading states, and graceful fallbacks. Cloudinary CDN for auto-format/responsive delivery and GSAP gallery transitions.',
     tags: ['React', 'OpenAI', 'Cloudinary', 'GSAP'],
